@@ -1,8 +1,8 @@
-class LycantululBot
+class werewereBot
   def self.start
     Telegram::Bot::Client.run($token) do |bot|
       bot.listen do |message|
-        Lycantulul::InputProcessorJob.perform_async(message, bot)
+        werewere::InputProcessorJob.perform_async(message, bot)
       end
     end
   rescue Net::ReadTimeout => e
