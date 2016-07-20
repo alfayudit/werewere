@@ -1,4 +1,4 @@
-module Lycantulul
+module werewere
   class Player
     include Mongoid::Document
     include Mongoid::Locker
@@ -8,7 +8,7 @@ module Lycantulul
     field :first_name, type: String
     field :full_name, type: String
     field :username, type: String
-    field :role, type: Integer, default: Lycantulul::Game::VILLAGER
+    field :role, type: Integer, default: werewere::Game::VILLAGER
     field :alive, type: Boolean, default: true
     field :ready, type: Boolean, default: false
     field :abstain, type: Integer, default: 0
@@ -17,7 +17,7 @@ module Lycantulul
     index({ user_id: 1 })
     index({ full_name: 1 })
 
-    belongs_to :game, class_name: 'Lycantulul::Game', index: true
+    belongs_to :game, class_name: 'werewere::Game', index: true
 
     ABSTAIN_LIMIT = 3
 
@@ -78,7 +78,7 @@ module Lycantulul
 
     def reset_state
       self.with_lock(wait: true) do
-        self.role = Lycantulul::Game::VILLAGER
+        self.role = werewere::Game::VILLAGER
         self.alive = true
         self.save
       end

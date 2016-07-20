@@ -1,4 +1,4 @@
-module Lycantulul
+module werewere
   class DiscussionTimerJob
     include SuckerPunch::Job
 
